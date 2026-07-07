@@ -6,7 +6,7 @@
 <title>Jack Dawson — Finance & Accounting</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,500&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root{
     --bg: #F2F0E9;
@@ -14,10 +14,18 @@
     --ink: #16232E;
     --ink-soft: #45525C;
     --crimson: #9E2B25;
+    --crimson-tint: #F4DAD7;
+    --crimson-deep: #6E1D19;
     --teal: #1F6F5C;
+    --teal-tint: #D8EDE5;
+    --teal-deep: #123D32;
     --brass: #A67C3D;
+    --brass-tint: #F1E2C4;
+    --brass-deep: #6B4E22;
     --line: #C9C4B4;
     --white: #FBFAF6;
+    --cream: #F7F5EC;
+    --navy-line: rgba(255,255,255,0.16);
   }
   *{box-sizing:border-box; margin:0; padding:0;}
   html{scroll-behavior:smooth;}
@@ -43,7 +51,7 @@
     padding-top:18px; padding-bottom:18px;
   }
   .brand{
-    font-family:'Fraunces', serif; font-weight:600; font-size:19px;
+    font-family:'Newsreader', serif; font-weight:600; font-size:19px;
     letter-spacing:0.01em;
   }
   .navlinks{display:flex; gap:28px; list-style:none;}
@@ -56,42 +64,50 @@
   .navtoggle{display:none; background:none; border:none; font-size:22px; cursor:pointer; color:var(--ink);}
 
   /* ---------- HERO ---------- */
-  .hero{padding:88px 0 64px;}
+  .hero{
+    padding:96px 0 60px; background:var(--ink); color:var(--cream); margin-bottom:0;
+  }
   .hero-top{
     display:grid; grid-template-columns:1.3fr 1fr; gap:48px; align-items:end;
   }
   .eyebrow{
     font-family:'IBM Plex Mono', monospace; font-size:12px; letter-spacing:0.12em;
-    text-transform:uppercase; color:var(--teal); margin-bottom:18px; display:block;
+    text-transform:uppercase; color:#7FD8BC; margin-bottom:18px; display:block;
   }
   h1.name{
-    font-family:'Fraunces', serif; font-weight:600; font-size:56px; line-height:1.02;
-    letter-spacing:-0.01em;
+    font-family:'Newsreader', serif; font-weight:600; font-size:56px; line-height:1.02;
+    letter-spacing:-0.01em; color:var(--cream);
   }
   .role{
-    font-size:18px; color:var(--ink-soft); margin-top:16px; max-width:46ch;
+    font-size:17px; color:#C7C2B2; margin-top:16px; max-width:56ch;
   }
   .hero-contact{
-    font-family:'IBM Plex Mono', monospace; font-size:13px; color:var(--ink-soft);
+    font-family:'IBM Plex Mono', monospace; font-size:13px; color:#C7C2B2;
     display:flex; flex-direction:column; gap:8px; text-align:right;
   }
-  .hero-contact a{text-decoration:none; border-bottom:1px solid var(--line);}
-  .hero-contact a:hover{border-color:var(--crimson); color:var(--crimson);}
+  .hero-contact a{text-decoration:none; border-bottom:1px solid rgba(255,255,255,0.22); color:var(--cream);}
+  .hero-contact a:hover{border-color:#E8A24A; color:#E8A24A;}
 
   /* split ticker */
   .ticker{
-    margin-top:56px; border-top:1px solid var(--ink); border-bottom:1px solid var(--ink);
+    margin-top:56px; border-top:1px solid var(--navy-line); border-bottom:1px solid var(--navy-line);
     display:grid; grid-template-columns:repeat(4,1fr);
   }
   .split{
-    padding:20px 18px; border-left:1px solid var(--line);
+    padding:20px 18px; border-left:1px solid var(--navy-line);
+    transition:background .18s ease;
   }
+  .split:hover{background:rgba(255,255,255,0.04);}
   .split:first-child{border-left:none;}
   .split-val{
-    font-family:'IBM Plex Mono', monospace; font-size:26px; font-weight:500; color:var(--crimson);
+    font-family:'IBM Plex Mono', monospace; font-size:26px; font-weight:500;
   }
+  .split:nth-child(1) .split-val{color:#E8A24A;}
+  .split:nth-child(2) .split-val{color:#7FD8BC;}
+  .split:nth-child(3) .split-val{color:#EE7A6C;}
+  .split:nth-child(4) .split-val{color:#E8A24A;}
   .split-label{
-    font-size:12px; color:var(--ink-soft); margin-top:6px; text-transform:uppercase; letter-spacing:0.04em;
+    font-size:12px; color:#93A0A9; margin-top:6px; text-transform:uppercase; letter-spacing:0.04em;
   }
 
   /* ---------- SECTION HEADERS ---------- */
@@ -101,13 +117,16 @@
     display:flex; align-items:baseline; gap:16px; margin-bottom:40px;
   }
   .section-head h2{
-    font-family:'Fraunces', serif; font-weight:600; font-size:30px;
+    font-family:'Newsreader', serif; font-weight:600; font-size:30px;
   }
   .section-head .tag{
-    font-family:'IBM Plex Mono', monospace; font-size:12px; color:var(--ink-soft);
-    text-transform:uppercase; letter-spacing:0.1em; border:1px solid var(--line);
-    padding:4px 10px; border-radius:2px;
+    font-family:'IBM Plex Mono', monospace; font-size:12px;
+    text-transform:uppercase; letter-spacing:0.1em;
+    padding:4px 10px; border-radius:3px; border:none;
   }
+  .tag-crimson{background:var(--crimson-tint); color:var(--crimson-deep);}
+  .tag-teal{background:var(--teal-tint); color:var(--teal-deep);}
+  .tag-brass{background:var(--brass-tint); color:var(--brass-deep);}
 
   /* ---------- EXPERIENCE (race program) ---------- */
   .leg{
@@ -116,11 +135,15 @@
   }
   .leg:first-of-type{border-top:none;}
   .leg-mark{
-    font-family:'IBM Plex Mono', monospace; font-size:13px; color:var(--brass);
+    font-family:'IBM Plex Mono', monospace; font-size:13px;
   }
-  .leg-mark .dates{display:block; margin-top:6px; color:var(--ink-soft); font-size:12px;}
+  .leg-chip{
+    display:inline-block; background:var(--crimson-tint); color:var(--crimson-deep);
+    padding:3px 9px; border-radius:3px; font-size:11.5px; letter-spacing:0.02em;
+  }
+  .leg-mark .dates{display:block; margin-top:8px; color:var(--ink-soft); font-size:12px;}
   .leg-title{
-    font-family:'Fraunces', serif; font-size:20px; font-weight:600;
+    font-family:'Newsreader', serif; font-size:20px; font-weight:600;
   }
   .leg-org{
     font-size:14px; color:var(--teal); font-weight:500; margin-top:2px;
@@ -131,23 +154,28 @@
 
   /* ---------- EDUCATION ---------- */
   .edu-card{
-    border:1px solid var(--line); background:var(--white); border-radius:3px;
+    border:1px solid var(--line); background:var(--white); border-radius:4px;
     padding:24px 26px; margin-bottom:16px;
+    box-shadow:0 1px 2px rgba(22,35,46,0.04);
+    transition:box-shadow .18s ease, border-color .18s ease;
+  }
+  .edu-card:hover{
+    border-color:#b8b3a0; box-shadow:0 4px 14px rgba(22,35,46,0.07);
   }
   .edu-top{display:flex; justify-content:space-between; align-items:baseline; flex-wrap:wrap; gap:8px;}
-  .edu-name{font-family:'Fraunces', serif; font-size:19px; font-weight:600;}
+  .edu-name{font-family:'Newsreader', serif; font-size:19px; font-weight:600;}
   .edu-date{font-family:'IBM Plex Mono', monospace; font-size:12px; color:var(--ink-soft);}
   .edu-sub{font-size:14px; color:var(--teal); margin-top:4px; font-style:italic;}
   .edu-meta{font-size:13.5px; color:var(--ink-soft); margin-top:10px;}
   .badge-row{display:flex; gap:8px; margin-top:12px; flex-wrap:wrap;}
   .badge{
     font-family:'IBM Plex Mono', monospace; font-size:11px; letter-spacing:0.03em;
-    color:var(--brass); border:1px solid var(--brass); padding:3px 9px; border-radius:2px;
+    color:var(--brass-deep); background:var(--brass-tint); padding:3px 9px; border-radius:3px;
   }
 
   /* ---------- ATHLETICS / ENDURANCE PATH ---------- */
   .path{
-    display:grid; grid-template-columns:1fr 1fr 1fr; gap:0; position:relative; margin-bottom:56px;
+    display:grid; grid-template-columns:1fr 1fr 1fr 1fr; gap:0; position:relative; margin-bottom:56px;
   }
   .path::before{
     content:""; position:absolute; top:22px; left:8%; right:8%; height:1px; background:var(--line); z-index:0;
@@ -159,17 +187,35 @@
   }
   .waypoint.done .dot{background:var(--crimson);}
   .wp-label{font-family:'IBM Plex Mono', monospace; font-size:11px; text-transform:uppercase; letter-spacing:0.08em; color:var(--ink-soft);}
-  .wp-title{font-family:'Fraunces', serif; font-size:18px; font-weight:600; margin-top:6px;}
+  .wp-title{font-family:'Newsreader', serif; font-size:18px; font-weight:600; margin-top:6px;}
   .wp-status{font-size:12.5px; color:var(--teal); margin-top:4px;}
+
+  .course-grid{
+    display:grid; grid-template-columns:1fr 1fr 1fr; gap:32px;
+  }
+  .course-group h3{
+    font-family:'IBM Plex Mono', monospace; font-size:12px; text-transform:uppercase;
+    letter-spacing:0.08em; color:var(--teal); margin-bottom:14px; font-weight:500;
+  }
+  .course-group ul{list-style:none;}
+  .course-group li{
+    font-size:14px; color:var(--ink-soft); padding:8px 0; border-top:1px solid var(--line);
+  }
+  .course-group li:first-of-type{border-top:none;}
 
   .other-grid{
     display:grid; grid-template-columns:1fr 1fr; gap:24px;
   }
   .other-card{
-    border-left:2px solid var(--teal); padding-left:20px;
+    border-left:3px solid var(--line); padding:2px 0 2px 20px;
+    transition:background .18s ease;
   }
+  .other-card:hover{background:rgba(0,0,0,0.015);}
+  .oc-crimson{border-left-color:var(--crimson);}
+  .oc-teal{border-left-color:var(--teal);}
+  .oc-brass{border-left-color:var(--brass);}
   .other-card h3{
-    font-family:'Fraunces', serif; font-size:17px; font-weight:600; margin-bottom:8px;
+    font-family:'Newsreader', serif; font-size:17px; font-weight:600; margin-bottom:8px;
   }
   .other-card p{font-size:14px; color:var(--ink-soft);}
   .other-card .stat{
@@ -177,13 +223,13 @@
   }
 
   /* ---------- CONTACT / FOOTER ---------- */
-  footer{padding:64px 0 48px; border-top:1px solid var(--line);}
+  footer{padding:64px 0 48px; background:var(--ink); color:var(--cream);}
   .foot-inner{display:flex; justify-content:space-between; align-items:flex-end; flex-wrap:wrap; gap:24px;}
-  footer h2{font-family:'Fraunces', serif; font-size:28px; font-weight:600; max-width:20ch;}
+  footer h2{font-family:'Newsreader', serif; font-size:28px; font-weight:600; max-width:20ch; color:var(--cream);}
   .foot-links{display:flex; gap:22px; font-family:'IBM Plex Mono', monospace; font-size:13px;}
-  .foot-links a{text-decoration:none; border-bottom:1px solid var(--line); padding-bottom:2px;}
-  .foot-links a:hover{color:var(--crimson); border-color:var(--crimson);}
-  .fine{font-size:12px; color:var(--ink-soft); margin-top:36px; font-family:'IBM Plex Mono', monospace;}
+  .foot-links a{text-decoration:none; border-bottom:1px solid rgba(255,255,255,0.22); padding-bottom:2px; color:var(--cream);}
+  .foot-links a:hover{color:#E8A24A; border-color:#E8A24A;}
+  .fine{font-size:12px; color:#93A0A9; margin-top:36px; font-family:'IBM Plex Mono', monospace;}
 
   /* ---------- RESPONSIVE ---------- */
   @media (max-width:780px){
@@ -203,6 +249,7 @@
     .path{grid-template-columns:1fr; gap:28px;}
     .path::before{display:none;}
     .other-grid{grid-template-columns:1fr;}
+    .course-grid{grid-template-columns:1fr; gap:28px;}
     .foot-inner{flex-direction:column; align-items:flex-start;}
   }
 </style>
@@ -216,6 +263,7 @@
     <ul class="navlinks" id="navLinks">
       <li><a href="#experience">Experience</a></li>
       <li><a href="#education">Education</a></li>
+      <li><a href="#coursework">Coursework</a></li>
       <li><a href="#athletics">Athletics &amp; Service</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
@@ -228,12 +276,13 @@
       <div>
         <span class="eyebrow">Finance &amp; Accounting — Toronto, ON</span>
         <h1 class="name">John &ldquo;Jack&rdquo; Dawson</h1>
-        <p class="role">Analyst pursuing pharmaceutical and insurance roll-up transactions, built on a habit of tracking every number that matters — deal returns, race splits, and everything in between.</p>
+        <p class="role">Finance analyst with hands-on deal experience across pharmaceutical and insurance roll-ups, plus a business built and run from the ground up &mdash; built on a habit of tracking every number that matters: deal returns, race splits, and everything in between. Currently seeking full-time opportunities in investment banking, private equity, or related finance roles.</p>
       </div>
       <div class="hero-contact">
         <a href="mailto:Jackmgd04@gmail.com">Jackmgd04@gmail.com</a>
         <a href="tel:4165809828">416-580-9828</a>
         <a href="https://linkedin.com/in/jackmg-dawson/" target="_blank" rel="noopener">linkedin.com/in/jackmg-dawson</a>
+        <span style="color:#E8A24A; margin-top:4px;">US &amp; Canadian citizen &mdash; no visa sponsorship required</span>
       </div>
     </div>
 
@@ -262,11 +311,11 @@
   <div class="wrap">
     <div class="section-head">
       <h2>Experience</h2>
-      <span class="tag">Course record</span>
+      <span class="tag tag-crimson">Course record</span>
     </div>
 
     <div class="leg">
-      <div class="leg-mark">Leg 01<span class="dates">May 2026&ndash;Present</span></div>
+      <div class="leg-mark"><span class="leg-chip">Leg 01</span><span class="dates">May 2026&ndash;Present</span></div>
       <div>
         <div class="leg-title">Analyst</div>
         <div class="leg-org">HCD Capital (Direct Investing) — Toronto, ON</div>
@@ -281,7 +330,7 @@
     </div>
 
     <div class="leg">
-      <div class="leg-mark">Leg 02<span class="dates">Jan&ndash;Nov 2025</span></div>
+      <div class="leg-mark"><span class="leg-chip">Leg 02</span><span class="dates">Jan&ndash;Nov 2025</span></div>
       <div>
         <div class="leg-title">Analyst</div>
         <div class="leg-org">Insurance Roll-Up (Confidential) — Toronto, ON</div>
@@ -293,7 +342,7 @@
     </div>
 
     <div class="leg">
-      <div class="leg-mark">Leg 03<span class="dates">May&ndash;Aug 2025</span></div>
+      <div class="leg-mark"><span class="leg-chip">Leg 03</span><span class="dates">May&ndash;Aug 2025</span></div>
       <div>
         <div class="leg-title">Founder &amp; Operator</div>
         <div class="leg-org">Grill Cleaners — Toronto, ON</div>
@@ -304,7 +353,7 @@
     </div>
 
     <div class="leg">
-      <div class="leg-mark">Leg 04<span class="dates">May&ndash;Aug 2024</span></div>
+      <div class="leg-mark"><span class="leg-chip">Leg 04</span><span class="dates">May&ndash;Aug 2024</span></div>
       <div>
         <div class="leg-title">Finance &amp; Accounting Intern</div>
         <div class="leg-org">Collette Tours — Rhode Island, US</div>
@@ -316,7 +365,7 @@
     </div>
 
     <div class="leg">
-      <div class="leg-mark">Leg 05<span class="dates">May&ndash;Aug 2023</span></div>
+      <div class="leg-mark"><span class="leg-chip">Leg 05</span><span class="dates">May&ndash;Aug 2023</span></div>
       <div>
         <div class="leg-title">Investment Banking Summer Analyst</div>
         <div class="leg-org">Infor Financial Group — Toronto, ON</div>
@@ -334,7 +383,7 @@
   <div class="wrap">
     <div class="section-head">
       <h2>Education</h2>
-      <span class="tag">Credentials</span>
+      <span class="tag tag-teal">Credentials</span>
     </div>
 
     <div class="edu-card">
@@ -348,10 +397,18 @@
 
     <div class="edu-card">
       <div class="edu-top">
-        <div class="edu-name">Wall Street Prep — Premium Course</div>
+        <div class="edu-name">Wall Street Prep — Premium Package</div>
         <div class="edu-date">September 2025</div>
       </div>
-      <div class="edu-meta">100-hour financial modelling and valuation program: 3-statement projections, DCF and M&amp;A models, LBO models with equity waterfall returns, scenario and sensitivity analysis, trading and transaction comps</div>
+      <div class="edu-sub">Full 100-hour curriculum</div>
+      <div class="edu-meta">Completed the full 100-hour Premium Package. Built 3-statement projections and WACC from public source data to drive DCF and M&amp;A models, developed LBO models with equity waterfall returns and dividend recaps, and ran scenario and sensitivity analysis. Built trading and transaction comps and buyer lists for strategic and financial acquirers.</div>
+      <div class="badge-row">
+        <span class="badge">3-statement modelling</span>
+        <span class="badge">WACC &amp; DCF</span>
+        <span class="badge">LBO waterfalls</span>
+        <span class="badge">Comps</span>
+        <span class="badge">Buyer lists</span>
+      </div>
     </div>
 
     <div class="edu-card">
@@ -359,7 +416,59 @@
         <div class="edu-name">Marquee Group</div>
         <div class="edu-date">2023</div>
       </div>
-      <div class="edu-meta">Financial Modelling &amp; DCF Valuation Courses</div>
+      <div class="edu-sub">Financial Modelling &amp; DCF Valuation course</div>
+      <div class="edu-meta">Completed Marquee's dedicated Financial Modelling &amp; DCF Valuation program, focused on building projection models and discounted cash flow valuations from scratch</div>
+    </div>
+  </div>
+</section>
+
+<section id="coursework">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Relevant coursework</h2>
+      <span class="tag tag-brass">Huron at Western</span>
+    </div>
+
+    <div class="course-grid">
+      <div class="course-group">
+        <h3>Finance &amp; Accounting</h3>
+        <ul>
+          <li>Advanced Finance</li>
+          <li>Derivative Securities Markets</li>
+          <li>Introduction to Auditing</li>
+          <li>Introduction to Taxation in Canada</li>
+          <li>Intermediate Accounting I &amp; II</li>
+          <li>Advanced Accounting</li>
+          <li>Management Accounting</li>
+          <li>Accounting &amp; Business Analysis</li>
+          <li>Personal Financial Planning</li>
+        </ul>
+      </div>
+      <div class="course-group">
+        <h3>Economics &amp; Quant</h3>
+        <ul>
+          <li>Econometrics I &amp; II</li>
+          <li>Intermediate Macroeconomics I &amp; II</li>
+          <li>Intermediate Microeconomics I &amp; II</li>
+          <li>Principles of Micro &amp; Macroeconomics</li>
+          <li>Methods of Calculus</li>
+          <li>Methods of Matrix Algebra</li>
+          <li>Methods of Finite Mathematics</li>
+        </ul>
+      </div>
+      <div class="course-group">
+        <h3>Business &amp; Management</h3>
+        <ul>
+          <li>Strategic Management</li>
+          <li>Management Control Systems</li>
+          <li>Business Law</li>
+          <li>Business Intelligence</li>
+          <li>Operations Management</li>
+          <li>Project Management</li>
+          <li>Organizational Behavior</li>
+          <li>Info Tech in Commercial Environments</li>
+        </ul>
+      </div>
     </div>
   </div>
 </section>
@@ -368,10 +477,16 @@
   <div class="wrap">
     <div class="section-head">
       <h2>Athletics &amp; Service</h2>
-      <span class="tag">In training</span>
+      <span class="tag tag-crimson">In training</span>
     </div>
 
     <div class="path">
+      <div class="waypoint done">
+        <div class="dot"></div>
+        <div class="wp-label">Distance</div>
+        <div class="wp-title">Half marathon</div>
+        <div class="wp-status">Completed</div>
+      </div>
       <div class="waypoint done">
         <div class="dot"></div>
         <div class="wp-label">Distance</div>
@@ -393,27 +508,27 @@
     </div>
 
     <div class="other-grid">
-      <div class="other-card">
+      <div class="other-card oc-crimson">
         <h3>Huron Investment Club</h3>
         <p><em>President</em> (previously VP Finance), September 2023&ndash;Present. Spearheaded fundraising and events that grew club funding by <span class="stat">400%+</span>, enabling high-impact industry events, company visits, and skills workshops for members.</p>
       </div>
-      <div class="other-card">
+      <div class="other-card oc-teal">
         <h3>Western Varsity Rowing</h3>
         <p>Core engine member, 4th seat, May 2023&ndash;May 2024. <span class="stat">Gold medal</span>, OUAA Novice Men&rsquo;s 8+, undefeated season.</p>
       </div>
-      <div class="other-card">
+      <div class="other-card oc-teal">
         <h3>Intramural sports</h3>
         <p>Division champion <span class="stat">3 years running</span>, with three fully undefeated seasons.</p>
       </div>
-      <div class="other-card">
+      <div class="other-card oc-brass">
         <h3>Math tutoring</h3>
         <p>Tutor high school students across factoring, quadratics, calculus, and trigonometry.</p>
       </div>
-      <div class="other-card">
+      <div class="other-card oc-brass">
         <h3>Community service</h3>
         <p>Regular volunteer at community food kitchens.</p>
       </div>
-      <div class="other-card">
+      <div class="other-card oc-crimson">
         <h3>Blood donor</h3>
         <p>Recurring donor with Canadian Blood Services.</p>
       </div>
