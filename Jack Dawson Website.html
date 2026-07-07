@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jack Dawson — Finance & Accounting</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #F2F0E9;
+    --bg-alt: #EAE7DD;
+    --ink: #16232E;
+    --ink-soft: #45525C;
+    --crimson: #9E2B25;
+    --teal: #1F6F5C;
+    --brass: #A67C3D;
+    --line: #C9C4B4;
+    --white: #FBFAF6;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'Inter', sans-serif;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;}
+  .wrap{max-width:960px; margin:0 auto; padding:0 32px;}
+
+  /* ---------- NAV ---------- */
+  header{
+    position:sticky; top:0; z-index:50;
+    background:rgba(242,240,233,0.92);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--line);
+  }
+  nav.wrap{
+    display:flex; align-items:center; justify-content:space-between;
+    padding-top:18px; padding-bottom:18px;
+  }
+  .brand{
+    font-family:'Fraunces', serif; font-weight:600; font-size:19px;
+    letter-spacing:0.01em;
+  }
+  .navlinks{display:flex; gap:28px; list-style:none;}
+  .navlinks a{
+    font-size:13px; text-transform:uppercase; letter-spacing:0.08em;
+    color:var(--ink-soft); text-decoration:none; font-weight:500;
+    transition:color .15s ease;
+  }
+  .navlinks a:hover{color:var(--crimson);}
+  .navtoggle{display:none; background:none; border:none; font-size:22px; cursor:pointer; color:var(--ink);}
+
+  /* ---------- HERO ---------- */
+  .hero{padding:88px 0 64px;}
+  .hero-top{
+    display:grid; grid-template-columns:1.3fr 1fr; gap:48px; align-items:end;
+  }
+  .eyebrow{
+    font-family:'IBM Plex Mono', monospace; font-size:12px; letter-spacing:0.12em;
+    text-transform:uppercase; color:var(--teal); margin-bottom:18px; display:block;
+  }
+  h1.name{
+    font-family:'Fraunces', serif; font-weight:600; font-size:56px; line-height:1.02;
+    letter-spacing:-0.01em;
+  }
+  .role{
+    font-size:18px; color:var(--ink-soft); margin-top:16px; max-width:46ch;
+  }
+  .hero-contact{
+    font-family:'IBM Plex Mono', monospace; font-size:13px; color:var(--ink-soft);
+    display:flex; flex-direction:column; gap:8px; text-align:right;
+  }
+  .hero-contact a{text-decoration:none; border-bottom:1px solid var(--line);}
+  .hero-contact a:hover{border-color:var(--crimson); color:var(--crimson);}
+
+  /* split ticker */
+  .ticker{
+    margin-top:56px; border-top:1px solid var(--ink); border-bottom:1px solid var(--ink);
+    display:grid; grid-template-columns:repeat(4,1fr);
+  }
+  .split{
+    padding:20px 18px; border-left:1px solid var(--line);
+  }
+  .split:first-child{border-left:none;}
+  .split-val{
+    font-family:'IBM Plex Mono', monospace; font-size:26px; font-weight:500; color:var(--crimson);
+  }
+  .split-label{
+    font-size:12px; color:var(--ink-soft); margin-top:6px; text-transform:uppercase; letter-spacing:0.04em;
+  }
+
+  /* ---------- SECTION HEADERS ---------- */
+  section{padding:64px 0;}
+  section + section{border-top:1px solid var(--line);}
+  .section-head{
+    display:flex; align-items:baseline; gap:16px; margin-bottom:40px;
+  }
+  .section-head h2{
+    font-family:'Fraunces', serif; font-weight:600; font-size:30px;
+  }
+  .section-head .tag{
+    font-family:'IBM Plex Mono', monospace; font-size:12px; color:var(--ink-soft);
+    text-transform:uppercase; letter-spacing:0.1em; border:1px solid var(--line);
+    padding:4px 10px; border-radius:2px;
+  }
+
+  /* ---------- EXPERIENCE (race program) ---------- */
+  .leg{
+    display:grid; grid-template-columns:150px 1fr; gap:28px;
+    padding:26px 0; border-top:1px solid var(--line);
+  }
+  .leg:first-of-type{border-top:none;}
+  .leg-mark{
+    font-family:'IBM Plex Mono', monospace; font-size:13px; color:var(--brass);
+  }
+  .leg-mark .dates{display:block; margin-top:6px; color:var(--ink-soft); font-size:12px;}
+  .leg-title{
+    font-family:'Fraunces', serif; font-size:20px; font-weight:600;
+  }
+  .leg-org{
+    font-size:14px; color:var(--teal); font-weight:500; margin-top:2px;
+  }
+  .leg ul{margin-top:14px; padding-left:18px;}
+  .leg li{font-size:14.5px; color:var(--ink-soft); margin-bottom:8px;}
+  .leg li::marker{color:var(--crimson);}
+
+  /* ---------- EDUCATION ---------- */
+  .edu-card{
+    border:1px solid var(--line); background:var(--white); border-radius:3px;
+    padding:24px 26px; margin-bottom:16px;
+  }
+  .edu-top{display:flex; justify-content:space-between; align-items:baseline; flex-wrap:wrap; gap:8px;}
+  .edu-name{font-family:'Fraunces', serif; font-size:19px; font-weight:600;}
+  .edu-date{font-family:'IBM Plex Mono', monospace; font-size:12px; color:var(--ink-soft);}
+  .edu-sub{font-size:14px; color:var(--teal); margin-top:4px; font-style:italic;}
+  .edu-meta{font-size:13.5px; color:var(--ink-soft); margin-top:10px;}
+  .badge-row{display:flex; gap:8px; margin-top:12px; flex-wrap:wrap;}
+  .badge{
+    font-family:'IBM Plex Mono', monospace; font-size:11px; letter-spacing:0.03em;
+    color:var(--brass); border:1px solid var(--brass); padding:3px 9px; border-radius:2px;
+  }
+
+  /* ---------- ATHLETICS / ENDURANCE PATH ---------- */
+  .path{
+    display:grid; grid-template-columns:1fr 1fr 1fr; gap:0; position:relative; margin-bottom:56px;
+  }
+  .path::before{
+    content:""; position:absolute; top:22px; left:8%; right:8%; height:1px; background:var(--line); z-index:0;
+  }
+  .waypoint{position:relative; z-index:1; text-align:center; padding:0 12px;}
+  .dot{
+    width:12px; height:12px; border-radius:50%; background:var(--bg); border:2px solid var(--crimson);
+    margin:0 auto 14px;
+  }
+  .waypoint.done .dot{background:var(--crimson);}
+  .wp-label{font-family:'IBM Plex Mono', monospace; font-size:11px; text-transform:uppercase; letter-spacing:0.08em; color:var(--ink-soft);}
+  .wp-title{font-family:'Fraunces', serif; font-size:18px; font-weight:600; margin-top:6px;}
+  .wp-status{font-size:12.5px; color:var(--teal); margin-top:4px;}
+
+  .other-grid{
+    display:grid; grid-template-columns:1fr 1fr; gap:24px;
+  }
+  .other-card{
+    border-left:2px solid var(--teal); padding-left:20px;
+  }
+  .other-card h3{
+    font-family:'Fraunces', serif; font-size:17px; font-weight:600; margin-bottom:8px;
+  }
+  .other-card p{font-size:14px; color:var(--ink-soft);}
+  .other-card .stat{
+    font-family:'IBM Plex Mono', monospace; color:var(--crimson); font-weight:500;
+  }
+
+  /* ---------- CONTACT / FOOTER ---------- */
+  footer{padding:64px 0 48px; border-top:1px solid var(--line);}
+  .foot-inner{display:flex; justify-content:space-between; align-items:flex-end; flex-wrap:wrap; gap:24px;}
+  footer h2{font-family:'Fraunces', serif; font-size:28px; font-weight:600; max-width:20ch;}
+  .foot-links{display:flex; gap:22px; font-family:'IBM Plex Mono', monospace; font-size:13px;}
+  .foot-links a{text-decoration:none; border-bottom:1px solid var(--line); padding-bottom:2px;}
+  .foot-links a:hover{color:var(--crimson); border-color:var(--crimson);}
+  .fine{font-size:12px; color:var(--ink-soft); margin-top:36px; font-family:'IBM Plex Mono', monospace;}
+
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width:780px){
+    .navlinks{
+      position:absolute; top:64px; right:0; left:0; background:var(--bg);
+      flex-direction:column; gap:0; border-top:1px solid var(--line); display:none;
+    }
+    .navlinks.open{display:flex;}
+    .navlinks a{padding:14px 32px; border-bottom:1px solid var(--line); width:100%;}
+    .navtoggle{display:block;}
+    .hero-top{grid-template-columns:1fr; gap:24px;}
+    .hero-contact{text-align:left;}
+    h1.name{font-size:38px;}
+    .ticker{grid-template-columns:1fr 1fr;}
+    .split:nth-child(3){border-left:none;}
+    .leg{grid-template-columns:1fr; gap:6px;}
+    .path{grid-template-columns:1fr; gap:28px;}
+    .path::before{display:none;}
+    .other-grid{grid-template-columns:1fr;}
+    .foot-inner{flex-direction:column; align-items:flex-start;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="wrap">
+    <div class="brand">Jack Dawson</div>
+    <button class="navtoggle" id="navToggle" aria-label="Toggle menu">&#9776;</button>
+    <ul class="navlinks" id="navLinks">
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#athletics">Athletics &amp; Service</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-top">
+      <div>
+        <span class="eyebrow">Finance &amp; Accounting — Toronto, ON</span>
+        <h1 class="name">John &ldquo;Jack&rdquo; Dawson</h1>
+        <p class="role">Analyst pursuing pharmaceutical and insurance roll-up transactions, built on a habit of tracking every number that matters — deal returns, race splits, and everything in between.</p>
+      </div>
+      <div class="hero-contact">
+        <a href="mailto:Jackmgd04@gmail.com">Jackmgd04@gmail.com</a>
+        <a href="tel:4165809828">416-580-9828</a>
+        <a href="https://linkedin.com/in/jackmg-dawson/" target="_blank" rel="noopener">linkedin.com/in/jackmg-dawson</a>
+      </div>
+    </div>
+
+    <div class="ticker">
+      <div class="split">
+        <div class="split-val">3.7</div>
+        <div class="split-label">GPA · Dean&rsquo;s List</div>
+      </div>
+      <div class="split">
+        <div class="split-val">3x</div>
+        <div class="split-label">Undefeated intramural seasons</div>
+      </div>
+      <div class="split">
+        <div class="split-val">+400%</div>
+        <div class="split-label">Investment Club funding growth</div>
+      </div>
+      <div class="split">
+        <div class="split-val">Gold</div>
+        <div class="split-label">OUAA Novice Men&rsquo;s 8+</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Experience</h2>
+      <span class="tag">Course record</span>
+    </div>
+
+    <div class="leg">
+      <div class="leg-mark">Leg 01<span class="dates">May 2026&ndash;Present</span></div>
+      <div>
+        <div class="leg-title">Analyst</div>
+        <div class="leg-org">HCD Capital (Direct Investing) — Toronto, ON</div>
+        <ul>
+          <li>Built LBO valuation and returns (IRR/MOIC) models with sensitivity analyses for two pharmacy acquisitions at LOI and closing stages, analyzing risk drivers including doctor concentration, molecule mix, staffing, script count growth, and GP/Rx trends</li>
+          <li>Analyzed financial statements, general ledgers, and bank transactions to validate accuracy, and managed the diligence tracker flagging issues for senior review</li>
+          <li>Supported a manufacturing technology acquisition out of CCAA bankruptcy followed by an RTO on the AIM exchange, building the returns model and diligencing management and value drivers</li>
+          <li>Contributed to an investment in a US early-stage medical technology company whose direct competitor was later acquired for $16 billion</li>
+          <li>Reviewed LOIs, NDAs, and expressions of interest for prospective acquisitions, identifying key deal terms</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="leg">
+      <div class="leg-mark">Leg 02<span class="dates">Jan&ndash;Nov 2025</span></div>
+      <div>
+        <div class="leg-title">Analyst</div>
+        <div class="leg-org">Insurance Roll-Up (Confidential) — Toronto, ON</div>
+        <ul>
+          <li>Built LBO models for acquisition targets to generate IRR and MOIC returns and sensitivities</li>
+          <li>Used comparable company analyses to assess entry and exit multiples, and identified key value drivers and risks through scenario analysis</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="leg">
+      <div class="leg-mark">Leg 03<span class="dates">May&ndash;Aug 2025</span></div>
+      <div>
+        <div class="leg-title">Founder &amp; Operator</div>
+        <div class="leg-org">Grill Cleaners — Toronto, ON</div>
+        <ul>
+          <li>Built and ran a BBQ cleaning business to 100+ clients, leading marketing, scheduling, logistics, and customer relations</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="leg">
+      <div class="leg-mark">Leg 04<span class="dates">May&ndash;Aug 2024</span></div>
+      <div>
+        <div class="leg-title">Finance &amp; Accounting Intern</div>
+        <div class="leg-org">Collette Tours — Rhode Island, US</div>
+        <ul>
+          <li>Improved internal controls around revenue recognition and accruals, reducing reconciliation issues and improving audit readiness</li>
+          <li>Designed a 20-module Excel training program covering VLOOKUP, pivot tables, INDEX &amp; MATCH, and sensitivity data tables for 800+ employees globally; the project's scope grew and the internship was extended to see it through</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="leg">
+      <div class="leg-mark">Leg 05<span class="dates">May&ndash;Aug 2023</span></div>
+      <div>
+        <div class="leg-title">Investment Banking Summer Analyst</div>
+        <div class="leg-org">Infor Financial Group — Toronto, ON</div>
+        <ul>
+          <li>Prepared investor pitch decks for distribution, mining, and technology transactions, conducting financial modelling, cap table, and multiples analyses to inform strategic investment decisions</li>
+          <li>Developed an LBO model for a $100M mining company acquisition target, integrating financials, debt schedules, and sensitivity analyses to assess IRR and cash flows</li>
+          <li>Conducted market and company research for active mandates, contributing to transaction materials and supporting senior bankers on live engagements</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="education">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Education</h2>
+      <span class="tag">Credentials</span>
+    </div>
+
+    <div class="edu-card">
+      <div class="edu-top">
+        <div class="edu-name">Huron at Western University</div>
+        <div class="edu-date">Expected December 2026</div>
+      </div>
+      <div class="edu-sub">Double Honours — Finance &amp; Accounting, Business Management and Organizational Studies</div>
+      <div class="edu-meta">GPA 3.7 &middot; Dean&rsquo;s List &middot; Entrance Scholarship ($3,500)</div>
+    </div>
+
+    <div class="edu-card">
+      <div class="edu-top">
+        <div class="edu-name">Wall Street Prep — Premium Course</div>
+        <div class="edu-date">September 2025</div>
+      </div>
+      <div class="edu-meta">100-hour financial modelling and valuation program: 3-statement projections, DCF and M&amp;A models, LBO models with equity waterfall returns, scenario and sensitivity analysis, trading and transaction comps</div>
+    </div>
+
+    <div class="edu-card">
+      <div class="edu-top">
+        <div class="edu-name">Marquee Group</div>
+        <div class="edu-date">2023</div>
+      </div>
+      <div class="edu-meta">Financial Modelling &amp; DCF Valuation Courses</div>
+    </div>
+  </div>
+</section>
+
+<section id="athletics">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Athletics &amp; Service</h2>
+      <span class="tag">In training</span>
+    </div>
+
+    <div class="path">
+      <div class="waypoint done">
+        <div class="dot"></div>
+        <div class="wp-label">Distance</div>
+        <div class="wp-title">Marathon</div>
+        <div class="wp-status">Currently training</div>
+      </div>
+      <div class="waypoint">
+        <div class="dot"></div>
+        <div class="wp-label">Multi-sport</div>
+        <div class="wp-title">Triathlon</div>
+        <div class="wp-status">Next up</div>
+      </div>
+      <div class="waypoint">
+        <div class="dot"></div>
+        <div class="wp-label">Endurance</div>
+        <div class="wp-title">Ironman</div>
+        <div class="wp-status">Long-term goal</div>
+      </div>
+    </div>
+
+    <div class="other-grid">
+      <div class="other-card">
+        <h3>Huron Investment Club</h3>
+        <p><em>President</em> (previously VP Finance), September 2023&ndash;Present. Spearheaded fundraising and events that grew club funding by <span class="stat">400%+</span>, enabling high-impact industry events, company visits, and skills workshops for members.</p>
+      </div>
+      <div class="other-card">
+        <h3>Western Varsity Rowing</h3>
+        <p>Core engine member, 4th seat, May 2023&ndash;May 2024. <span class="stat">Gold medal</span>, OUAA Novice Men&rsquo;s 8+, undefeated season.</p>
+      </div>
+      <div class="other-card">
+        <h3>Intramural sports</h3>
+        <p>Division champion <span class="stat">3 years running</span>, with three fully undefeated seasons.</p>
+      </div>
+      <div class="other-card">
+        <h3>Math tutoring</h3>
+        <p>Tutor high school students across factoring, quadratics, calculus, and trigonometry.</p>
+      </div>
+      <div class="other-card">
+        <h3>Community service</h3>
+        <p>Regular volunteer at community food kitchens.</p>
+      </div>
+      <div class="other-card">
+        <h3>Blood donor</h3>
+        <p>Recurring donor with Canadian Blood Services.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer id="contact">
+  <div class="wrap">
+    <div class="foot-inner">
+      <h2>Let&rsquo;s talk finance, rowing, or the next race on the calendar.</h2>
+      <div class="foot-links">
+        <a href="mailto:Jackmgd04@gmail.com">Email</a>
+        <a href="tel:4165809828">Call</a>
+        <a href="https://linkedin.com/in/jackmg-dawson/" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
+    <div class="fine">Toronto, ON &middot; Updated 2026</div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('navToggle').addEventListener('click', function(){
+    document.getElementById('navLinks').classList.toggle('open');
+  });
+  document.querySelectorAll('.navlinks a').forEach(function(link){
+    link.addEventListener('click', function(){
+      document.getElementById('navLinks').classList.remove('open');
+    });
+  });
+</script>
+
+</body>
+</html>
