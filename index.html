@@ -203,6 +203,27 @@
   }
   .course-group li:first-of-type{border-top:none;}
 
+  .leadership-grid{
+    display:grid; grid-template-columns:1fr 1fr; gap:20px; margin-bottom:32px;
+  }
+  .lead-card{
+    background:var(--white); border:1px solid var(--line); border-top:3px solid var(--crimson);
+    border-radius:4px; padding:22px 24px;
+    box-shadow:0 1px 2px rgba(22,35,46,0.04);
+    transition:box-shadow .18s ease;
+  }
+  .lead-card:hover{box-shadow:0 4px 14px rgba(22,35,46,0.07);}
+  .lead-role{
+    font-family:'IBM Plex Mono', monospace; font-size:11px; text-transform:uppercase;
+    letter-spacing:0.08em; color:var(--crimson-deep); background:var(--crimson-tint);
+    display:inline-block; padding:3px 9px; border-radius:3px; margin-bottom:12px;
+  }
+  .lead-card h3{
+    font-family:'Newsreader', serif; font-size:19px; font-weight:600; margin-bottom:6px;
+  }
+  .lead-card .lead-dates{font-size:12.5px; color:var(--ink-soft); font-family:'IBM Plex Mono', monospace; margin-bottom:10px; display:block;}
+  .lead-card p{font-size:14px; color:var(--ink-soft);}
+
   .other-grid{
     display:grid; grid-template-columns:1fr 1fr; gap:24px;
   }
@@ -220,6 +241,9 @@
   .other-card p{font-size:14px; color:var(--ink-soft);}
   .other-card .stat{
     font-family:'IBM Plex Mono', monospace; color:var(--crimson); font-weight:500;
+  }
+  .lead-card .stat{
+    font-family:'IBM Plex Mono', monospace; color:var(--crimson-deep); font-weight:500;
   }
 
   /* ---------- CONTACT / FOOTER ---------- */
@@ -248,6 +272,7 @@
     .leg{grid-template-columns:1fr; gap:6px;}
     .path{grid-template-columns:1fr; gap:28px;}
     .path::before{display:none;}
+    .leadership-grid{grid-template-columns:1fr;}
     .other-grid{grid-template-columns:1fr;}
     .course-grid{grid-template-columns:1fr; gap:28px;}
     .foot-inner{flex-direction:column; align-items:flex-start;}
@@ -507,11 +532,22 @@
       </div>
     </div>
 
-    <div class="other-grid">
-      <div class="other-card oc-crimson">
+    <div class="leadership-grid">
+      <div class="lead-card">
+        <span class="lead-role">President</span>
         <h3>Huron Investment Club</h3>
-        <p><em>President</em> (previously VP Finance), September 2023&ndash;Present. Spearheaded fundraising and events that grew club funding by <span class="stat">400%+</span>, enabling high-impact industry events, company visits, and skills workshops for members.</p>
+        <span class="lead-dates">Previously VP Finance &middot; September 2023&ndash;Present</span>
+        <p>Spearheaded fundraising and events that grew club funding by <span class="stat">400%+</span>, enabling high-impact industry events, company visits, and skills workshops for members.</p>
       </div>
+      <div class="lead-card">
+        <span class="lead-role">President</span>
+        <h3>Huron Consulting Association</h3>
+        <span class="lead-dates">Previously VP Finance</span>
+        <p>Organized a firm trip featuring four speakers from <span class="stat">BCG, Mbolden, KPMG, and Manulife</span>, and built out a large-scale coffee chat program connecting members with industry professionals.</p>
+      </div>
+    </div>
+
+    <div class="other-grid">
       <div class="other-card oc-teal">
         <h3>Western Varsity Rowing</h3>
         <p>Core engine member, 4th seat, May 2023&ndash;May 2024. <span class="stat">Gold medal</span>, OUAA Novice Men&rsquo;s 8+, undefeated season.</p>
